@@ -24,7 +24,8 @@ xattr -cr ani-rss.app
 test -f ./ani-rss.dmg && rm ./ani-rss.dmg
 
 create-dmg \
-    --volname "ANI-RSS Installer" \
+    --volicon "volume_icon.icns" \
+    --volname "安装 ANI-RSS" \
     --background "background.svg" \
     --window-pos 400 200 \
     --window-size 660 400 \
