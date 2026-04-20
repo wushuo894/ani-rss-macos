@@ -40,9 +40,8 @@ while :
 do
     java -Xms60m -Xmx1g -Xss256k \
       -Dfile.encoding=UTF-8 \
-      -Xgcpolicy:gencon \
       -Xshareclasses:none \
-      -Xquickstart -Xcompressedrefs \
+      -Xcompressedrefs \
       -XX:+UseStringDeduplication \
       -XX:-ShrinkHeapInSteps \
       -XX:TieredStopAtLevel=1 \
