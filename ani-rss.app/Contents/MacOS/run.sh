@@ -36,20 +36,22 @@ sigterm_handler() {
 
 trap 'sigterm_handler' 15
 
+if [ -z "$JAVA_OPTS" ]; then
+  export JAVA_OPTS="-Xms64m -Xmx512m -Xss256k -XX:+UseG1GC"
+fi
+
+echo "JAVA_OPTS=$JAVA_OPTS"
+
 while :
 do
-    java -Xms60m -Xmx1g -Xss256k \
-      -Dfile.encoding=UTF-8 \
-      -Xshareclasses:none \
-      -Xcompressedrefs \
+    java $JAVA_OPTS \
       -XX:+UseStringDeduplication \
-      -XX:-ShrinkHeapInSteps \
-      -XX:TieredStopAtLevel=1 \
-      -XX:+IgnoreUnrecognizedVMOptions \
       -XX:+UseCompactObjectHeaders \
+      -XX:TieredStopAtLevel=1 \
       --enable-native-access=ALL-UNNAMED \
       --add-opens=java.base/java.net=ALL-UNNAMED \
       --add-opens=java.base/sun.net.www.protocol.https=ALL-UNNAMED \
+      -Dfile.encoding=UTF-8 \
       -jar $JAR_FILE \
       --gui&
     wait $!
