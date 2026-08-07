@@ -10,7 +10,7 @@ cd $(dirname $0)
 JAR_FILE="ani-rss.app/Contents/MacOS/ani-rss.jar"
 
 if [ ! -e ${JAR_FILE} ]; then
-    echo "${RED}ani-rss.jar 不存在${NC}"
+    echo -e "${RED}ani-rss.jar 不存在${NC}"
     exit 1
 fi
 
@@ -24,8 +24,7 @@ xattr -cr ani-rss.app
 test -f ./ani-rss.dmg && rm ./ani-rss.dmg
 
 create-dmg \
-    --volicon "volume_icon.icns" \
-    --volname "安装 ANI-RSS" \
+    --volname "Install ANI-RSS" \
     --background "background.svg" \
     --window-pos 400 200 \
     --window-size 660 400 \
