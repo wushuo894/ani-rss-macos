@@ -20,13 +20,12 @@
         <string>APPL</string>
         <key>CSResourcesFileMapped</key>
         <true/>
-        <key>LSRequiresCarbon</key>
-        <true/>
-        <key>NSPrincipalClass</key>
-        <string>NSApplication</string>
         <key>CFBundleInfoDictionaryVersion</key>
         <string>6.0</string>
         <key>NSHighResolutionCapable</key>
+        <true/>
+        <!-- 隐藏 Dock 图标 -->
+        <key>LSUIElement</key>
         <true/>
     </dict>
 </plist>
